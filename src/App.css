@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Poppins';
 }
 
 .container {
@@ -18,7 +19,6 @@
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
-    font-family: 'Poppins'
 }
 
 .clearButton {

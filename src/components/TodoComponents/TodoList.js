@@ -6,9 +6,10 @@ import Todo from './Todo'
 
 
 const TodoList = props => {
+    const sortedList = props.todos.sort((a, b) => a.completed - b.completed)
     return (
-        <div className="list-container">
-            {props.todos.map(task => {
+        <div className="list-container">       
+            {sortedList.map(task => {
                return (
                     <Todo
                     task={task}
