@@ -1,6 +1,7 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo'
-import './App.css'
+import './App.css';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,61 +10,42 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
-      task: '',
-      uid: '',
-      completed: false,
+      todos: []
     }
   }
-
-  // This event handler will set the task value to something that mirrors what the user has input in the form input field
-
-  handleChanges = event => {
-    this.setState({ 
-      task: event.target.value,
-    });
-  };
-
 
   // This event handler will add a timestamp to the new task object and add it to the todos array 
 
 
-  addTask = event => {
+  addTask = (event, task) => {
     event.preventDefault();
     const newTaskItem = {
-      task: this.state.task,
-      uid: Date.now(),
-      completed: this.state.completed,
+        task: task,
+        uid: Date.now(),
+        completed: false,
     };
     this.setState({
-      todos: [...this.state.todos, newTaskItem]// assigned to new array
+        todos: [...this.state.todos, newTaskItem]// assigned to new array
     });   
   };
 
-  completeTask = event => {
-    event.preventDefault();
-    const target = this.state.todos.filter(element => {
-      
-    })
-    this.setState({
-      todos: this.state.todos.filter(element => {
-        
-      })
-    })
-    console.log(`The button's working at least :/`)
-  }
-
 
   render() {
+
     return (
       <div>
-        <Todo 
-          handleChanges = {this.handleChanges}
-          addTask = {this.addTask}
-          completeTask = {this.completeTask}
-          task = {this.state.task}
-          uid = {this.state.uid}
+        <div className="header">
+          <h1>To-Do List</h1>
+            <img 
+            src="../mario_luigi_dance.gif"
+            alt="marioandluigi"
+            ></img>
+        </div>
+        <TodoList 
           todos = {this.state.todos}
+        />
+        <TodoForm
+          addTask = {this.addTask}
         />
       </div>
     );

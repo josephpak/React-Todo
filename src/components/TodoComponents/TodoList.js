@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import './Todo.css';
+import Todo from './Todo'
 
 
 const TodoList = props => {
@@ -9,14 +10,9 @@ const TodoList = props => {
         <div className="list-container">
             {props.todos.map(todo => {
                return (
-                    <div 
-                    className={todo.completed === true ? "complete" : "incomplete"}
-                    key={todo.uid} 
-                    uid={todo.uid}
-                    onClick={props.completeTask}
-                    task={todo.task}
-                    completed={todo.completed}
-                    >{todo.task}</div>
+                    <Todo
+                    todo={todo}
+                    />
                )
             })}
         </div>
