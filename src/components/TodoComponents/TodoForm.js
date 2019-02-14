@@ -27,6 +27,7 @@ class TodoForm extends React.Component {
                 <form 
                 className="todo-form"
                 onSubmit={this.submitTask}>
+                    <button className="addButton">Add Todo</button>
                     <input
                         className="addInput"
                         type="text"
@@ -35,7 +36,7 @@ class TodoForm extends React.Component {
                         onChange={this.handleChanges}
                         placeholder="...Todo"
                     ></input>
-                    <button className="addButton">Add Todo</button>
+
                 </form>
                
             </div>

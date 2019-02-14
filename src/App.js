@@ -1,4 +1,5 @@
 import React from 'react';
+import './reset.css'
 import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
@@ -61,12 +62,12 @@ class App extends React.Component {
             alt="marioandluigi"
             ></img>
         </div>
+        <TodoForm
+          addTask = {this.addTask}
+        />
         <TodoList 
           todos = {this.state.todos}
           toggleTask = {this.toggleTask}
-        />
-        <TodoForm
-          addTask = {this.addTask}
         />
         <button 
         className="clearButton"
