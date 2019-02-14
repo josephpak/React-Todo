@@ -40,6 +40,12 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(task => !task.completed)
+    })
+  }
 
   render() {
 
@@ -59,7 +65,10 @@ class App extends React.Component {
         <TodoForm
           addTask = {this.addTask}
         />
-        <button className="clearButton">Clear Completed</button>
+        <button 
+        className="clearButton"
+        onClick={this.clearCompleted}
+        >Clear Completed</button>
       </div>
     );
   }
