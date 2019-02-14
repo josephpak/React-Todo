@@ -18,12 +18,14 @@
     width: 400px;
     border: none;
     font-size: .9rem;
-    padding: .3em 0;
+    padding: .4em 0;
     border-bottom: 1px solid black;
 }
 
 .addInput:focus {
-    outline:none;
+    outline: none;
+    text-align: left;
+    padding: .4em 2em;
 }
 
 .addButton {
@@ -75,7 +77,9 @@ h2 {
     height: 3em;
     display: flex;
     align-items: center;
-    background: lightblue;;
+    background: lightblue;
+    cursor: pointer;
+    padding: 0 2em;
 }
 
 .task p {
@@ -85,5 +89,13 @@ h2 {
 
 .task.completed {
     text-decoration: line-through;
-    background: lightcoral;
+    background: lightgreen;
+}
+
+.check {
+    color: gray;
+}
+
+.check.completed {
+    color: green;
 }

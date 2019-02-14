@@ -2,7 +2,11 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import './Todo.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheckCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
 import Todo from './Todo'
+
+library.add(faCheckCircle, faCircle);
 
 
 const TodoList = props => {

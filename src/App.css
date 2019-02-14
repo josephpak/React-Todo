@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 900px;
+    height: 800px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -20,6 +20,27 @@ button {
 button:focus {
     outline: none;
 }
+
+/* Nav Styles */
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 4em;
+    align-items: center;
+    padding: 0 10em;
+    font-family: Poppins;
+}
+
+.attribution {
+    display: flex;
+}
+
+.attribution p {
+    margin-right: .5em;
+}
+
 
 /* Header Styles */
 

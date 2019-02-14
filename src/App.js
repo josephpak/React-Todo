@@ -54,26 +54,35 @@ class App extends React.Component {
   render() {
 
     return (
-      <div class="container">
-        <div className="header">
-          <h1>To-Do List</h1>
-            <img 
-            src="../mario_luigi_dance.gif"
-            alt="marioandluigi"
-            ></img>
+      <div className="main-container">
+        <div class="nav">
+          <div className="attribution">
+            <p>Created by</p>
+            <a class="nav-link" href="josephjpak.com" target="_blank">Joe Pak</a>
+          </div>
         </div>
-        <TodoForm
-          addTask = {this.addTask}
-        />
-        <TodoList 
-          todos = {this.state.todos}
-          toggleTask = {this.toggleTask}
-        />
-        <button 
-        className="clearButton"
-        onClick={this.clearCompleted}
-        >Clear Completed</button>
+        <div className="container">
+          <div className="header">
+            <h1>To-Do List</h1>
+              <img 
+              src="../mario_luigi_dance.gif"
+              alt="marioandluigi"
+              ></img>
+          </div>
+          <TodoForm
+            addTask = {this.addTask}
+          />
+          <TodoList 
+            todos = {this.state.todos}
+            toggleTask = {this.toggleTask}
+          />
+          <button 
+          className="clearButton"
+          onClick={this.clearCompleted}
+          >Clear Completed</button>
+        </div>  
       </div>
+        
     );
   }
 }
