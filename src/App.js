@@ -29,11 +29,22 @@ class App extends React.Component {
     });   
   };
 
+  toggleTask = taskId => {
+    this.setState({
+      todos: this.state.todos.map(task => {
+        if(taskId === task.uid) {
+          return { ...task, completed: !task.completed}
+        }
+        return task;
+      })
+    })
+  }
+
 
   render() {
 
     return (
-      <div>
+      <div class="container">
         <div className="header">
           <h1>To-Do List</h1>
             <img 
@@ -43,10 +54,12 @@ class App extends React.Component {
         </div>
         <TodoList 
           todos = {this.state.todos}
+          toggleTask = {this.toggleTask}
         />
         <TodoForm
           addTask = {this.addTask}
         />
+        <button className="clearButton">Clear Completed</button>
       </div>
     );
   }

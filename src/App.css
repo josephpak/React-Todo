@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .todo-container {
     height: 800px;
     max-width: 800px;
@@ -13,4 +19,20 @@
     flex-direction: column;
     margin: 0 auto;
     font-family: 'Poppins'
+}
+
+.clearButton {
+    padding: 8px 20px;
+    width: 150px;
+    border-radius: 8px;
+    border: 1px solid firebrick;
+    color: firebrick;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.clearButton:hover {
+    border: 1px solid white;
+    background-color: firebrick;
+    color: white;
 }

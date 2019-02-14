@@ -36,7 +36,6 @@ class TodoForm extends React.Component {
                         placeholder="...Todo"
                     ></input>
                     <button className="addButton">Add Todo</button>
-                    <button className="clearButton">Clear Completed</button>
                 </form>
                
             </div>
