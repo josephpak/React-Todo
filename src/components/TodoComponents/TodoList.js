@@ -10,7 +10,7 @@ const TodoList = props => {
     return (
         <div className="list">
             <div className = "incomplete-list">
-                <h1>Todo</h1>
+                <h2>Todo</h2>
                 <div className="list-container">       
                     {sortedList.map(task => {
                         if (!task.completed){
@@ -26,7 +26,7 @@ const TodoList = props => {
             </div>
             <div className="complete-list">
                 <div className="header-row">
-                    <h1>Completed</h1>
+                <h2>Completed</h2>
                 </div>
                 <div className="list-container">
                     {sortedList.map(task => {

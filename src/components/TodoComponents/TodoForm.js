@@ -26,7 +26,8 @@ class TodoForm extends React.Component {
             <div className="form-container">
                 <form 
                 className="todo-form"
-                onSubmit={this.submitTask}>
+                onSubmit={this.submitTask}
+                autocomplete="off">
                     <button className="addButton">Add Todo</button>
                     <input
                         className="addInput"
