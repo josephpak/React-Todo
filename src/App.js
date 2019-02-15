@@ -3,6 +3,7 @@ import './reset.css'
 import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import uuidv4 from 'uuid';
 
 // JSON.stringify()
 // parse()
@@ -30,7 +31,7 @@ class App extends React.Component {
     if(task.length > 0) {
       const newTaskItem = {
         task: task,
-        uid: Date.now(),
+        uid: uuidv4(),
         completed: false,
       };
       this.setState({
