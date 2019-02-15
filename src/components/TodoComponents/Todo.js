@@ -1,22 +1,19 @@
 import React from 'react';
-import TodoForm from './TodoForm'
-import TodoList from './TodoList'
+import './Todo.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const Todo = props => {
     return (
-        <div>
-           <h1>To-Do List</h1>
-            <TodoList 
-                id = {props.uid}
-                todos = {props.todos}
-                completed = {props.completed}
+        <div 
+        className={`task ${props.task.completed ? "completed" : ''}`}
+        onClick={() => props.toggleTask(props.task.uid)}
+        >
+            <FontAwesomeIcon
+                className={`check ${props.task.completed ? "completed" : ''}`}
+                icon={`${props.task.completed ? "check-circle" : "circle"}`}
             />
-            <TodoForm 
-                handleChanges = {props.handleChanges}
-                addTask = {props.addTask}
-                task = {props.task}
-                id = {props.uid}
-            />
+            <p>{props.task.task}</p>
         </div>
         
     )

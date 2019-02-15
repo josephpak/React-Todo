@@ -1,5 +1,12 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo'
+import './reset.css'
+import './App.css';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+import uuidv4 from 'uuid';
+
+// JSON.stringify()
+// parse()
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,54 +15,82 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
-      task: '',
-      uid: '',
-      completed: false,
+      todos: []
     }
   }
 
-  // This event handler will set the task value to something that mirrors what the user has input in the form input field
-
-  handleChanges = event => {
-    this.setState({ 
-      task: event.target.value,
-    });
-  };
-
-
   // This event handler will add a timestamp to the new task object and add it to the todos array 
 
+  // Click the Add button
+  // Sending that object to an array
+  // Send that array to localStorage
+  // State todos array would pull from the localStorage
 
-  addTask = event => {
+  addTask = (event, task) => {
     event.preventDefault();
-    const newTaskItem = {
-      task: this.state.task,
-      uid: Date.now(),
-      completed: this.state.completed,
-    };
-    this.setState({
-      todos: [...this.state.todos, newTaskItem]// assigned to new array
-    });   
+    if(task.length > 0) {
+      const newTaskItem = {
+        task: task,
+        uid: uuidv4(),
+        completed: false,
+      };
+      this.setState({
+          todos: [...this.state.todos, newTaskItem]// assigned to new array
+      });   
+    }
+    
   };
 
-  completeTask = event => {
-    event.preventDefault();
-    
+  toggleTask = taskId => {
+    this.setState({
+      todos: this.state.todos.map(task => {
+        if(taskId === task.uid) {
+          return { ...task, completed: !task.completed}
+        }
+        return task;
+      })
+    })
   }
 
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(task => !task.completed)
+    })
+  }
 
   render() {
+
     return (
-      <div>
-        <Todo 
-          handleChanges = {this.handleChanges}
-          addTask = {this.addTask}
-          task = {this.state.task}
-          uid = {this.state.uid}
-          todos = {this.state.todos}
-        />
+      <div className="main-container">
+        <div class="nav">
+          <div className="attribution">
+            <p>Created by</p>
+            <a class="nav-link" href="www.josephjpak.com" target="_blank">Joe Pak</a>
+          </div>
+        </div>
+        <div className="container">
+          <div className="header">
+            <h1>To-Do List</h1>
+              <img 
+              src="../mario_luigi_dance.gif"
+              alt="marioandluigi"
+              ></img>
+          </div>
+          <TodoForm
+            addTask = {this.addTask}
+          />
+          <TodoList 
+            todos = {this.state.todos}
+            toggleTask = {this.toggleTask}
+          />
+          <button 
+          className="clearButton"
+          onClick={this.clearCompleted}
+          >Clear Completed</button>
+        </div>  
       </div>
+        
     );
   }
 }
