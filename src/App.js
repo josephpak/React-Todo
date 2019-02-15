@@ -4,6 +4,9 @@ import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+// JSON.stringify()
+// parse()
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -17,6 +20,10 @@ class App extends React.Component {
 
   // This event handler will add a timestamp to the new task object and add it to the todos array 
 
+  // Click the Add button
+  // Sending that object to an array
+  // Send that array to localStorage
+  // State todos array would pull from the localStorage
 
   addTask = (event, task) => {
     event.preventDefault();
@@ -58,7 +65,7 @@ class App extends React.Component {
         <div class="nav">
           <div className="attribution">
             <p>Created by</p>
-            <a class="nav-link" href="josephjpak.com" target="_blank">Joe Pak</a>
+            <a class="nav-link" href="www.josephjpak.com" target="_blank">Joe Pak</a>
           </div>
         </div>
         <div className="container">

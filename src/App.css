@@ -50,6 +50,11 @@ button:focus {
     margin-right: .5em;
 }
 
+.attribution a {
+    text-decoration: none;
+    color: firebrick;
+}
+
 
 /* Header Styles */
 
